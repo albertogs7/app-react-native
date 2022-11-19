@@ -1,38 +1,44 @@
 import React from 'react';
 import { Text, StyleSheet, TextStyle } from 'react-native';
 
+const colors = {
+    dimgray: 'dimgray',
+    blue: 'blue',
+};
 const styles = StyleSheet.create({
-    text: {
-        fontSize: 12,
-        color: 'dimgrey',
+    big: {
+        fontSize: 20,
+    },
+    blue: {
+        color: colors.blue,
     },
     bold: {
         fontWeight: 'bold',
     },
-    blue: {
-        color: 'blue',
-    },
-    big: {
-        fontSize: 20,
-    },
     small: {
         fontSize: 10,
     },
+    text: {
+        color: colors.dimgray,
+        fontSize: 12,
+    },
 });
 
-export default function StyledText({
-    blue,
-    children,
-    bold,
-    big,
-    small,
-}: {
+type Props = {
     blue?: boolean;
     bold?: boolean;
     big?: boolean;
-    children?: string | string[];
+    children: string | string[];
     small?: boolean;
-}) {
+};
+
+export default function StyledText({
+    blue,
+    bold,
+    big,
+    children,
+    small,
+}: Props) {
     const textStyles = [
         styles.text,
         blue && styles.blue,
@@ -40,6 +46,12 @@ export default function StyledText({
         small && styles.small,
         bold && styles.bold,
     ] as TextStyle;
-
     return <Text style={textStyles}>{children}</Text>;
 }
+
+StyledText.defaultProps = {
+    blue: false,
+    bold: false,
+    big: false,
+    small: false,
+};

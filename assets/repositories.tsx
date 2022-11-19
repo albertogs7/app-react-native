@@ -32,4 +32,15 @@ export default [
         reviewCount: 2,
         ownerAvatarUrl: 'https://avatars.githubusercontent.com/u/4060187?v=4',
     },
+    {
+        id: 'Kaybarax.rails',
+        fullName: 'react-js-spa-app-starter-template-framework',
+        description: 'This project was bootstrapped with Create React App',
+        language: 'reactjs',
+        forksCount: 18349,
+        stargazersCount: 45377,
+        ratingAverage: 100,
+        reviewCount: 2,
+        ownerAvatarUrl: 'https://avatars.githubusercontent.com/u/4060187?v=4',
+    },
 ];

@@ -1,10 +1,10 @@
+import React from 'react';
 import 'expo/build/Expo.fx';
 import { Platform } from 'react-native';
 import { registerRootComponent } from 'expo';
 import { activateKeepAwake } from 'expo-keep-awake';
 import { createRoot } from 'react-dom/client';
 import App from './App'; /* CHANGE THE PATH BASED ON WHERE YOURS IS LOCATED */
-//import Main from './src/pages/Main';
 
 if (__DEV__) {
     activateKeepAwake();
@@ -12,7 +12,8 @@ if (__DEV__) {
 
 if (Platform.OS === 'web') {
     const root = createRoot(
-        document.getElementById('root') ?? document.getElementById('main')
+        document.getElementById('root') ??
+            (document.getElementById('main') as Element)
     );
     root.render(<App />);
 } else {

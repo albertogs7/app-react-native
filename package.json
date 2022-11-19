@@ -2,34 +2,43 @@
 	"name": "app-react-native",
 	"version": "1.0.0",
 	"main_": "node_modules/expo/AppEntry.js",
-	"main": "AppEntry.js",
+	"main": "AppEntry.tsx",
 	"scripts": {
 		"start": "expo start",
 		"android": "expo start --android",
 		"ios": "expo start --ios",
-		"web": "expo start --web"
+		"web": "expo start --web",
+		"lint": "node_modules/.bin/eslint --ext=.jsx,.js,.tsx,.ts  ."
 	},
 	"dependencies": {
+		"@expo/webpack-config": "^0.17.2",
 		"expo": "~47.0.6",
+		"expo-constants": "^14.0.2",
 		"expo-status-bar": "~1.4.2",
 		"react": "18.1.0",
 		"react-dom": "18.1.0",
 		"react-native": "0.70.5",
-		"react-native-web": "~0.18.9",
-		"@expo/webpack-config": "^0.17.2"
+		"react-native-web": "~0.18.9"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.9",
 		"@types/react": "~18.0.14",
+		"@types/react-dom": "^18.0.9",
 		"@types/react-native": "~0.70.6",
 		"@typescript-eslint/eslint-plugin": "^5.43.0",
+		"@typescript-eslint/parser": "^5.43.0",
 		"eslint": "^8.27.0",
 		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-jsx-a11y": "^6.6.1",
 		"eslint-plugin-react": "^7.31.10",
 		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-native": "^4.0.0",
 		"typescript": "^4.6.3"
 	},
-	"private": true
+	"private": true,
+	"packagerOpts":{
+		"sourceExts": [ "js", "json", "ts", "tsx", "jsx", "vue"]
+	}
 }

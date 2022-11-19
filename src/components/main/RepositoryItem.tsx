@@ -1,20 +1,17 @@
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import StyledText from '../StyledText';
 
-const RepositoryItem = (props: any) => (
-    <View key={props.id} style={styles.container}>
-        <StyledText bold blue>
-            id: {props.id}
-        </StyledText>
-        <Text>FullName: {props.fullName}</Text>
-        <Text>Description: {props.description}</Text>
-        <Text>Language: {props.language}</Text>
-        <Text>Stars: {props.stargazersCount}</Text>
-        <Text>Forks: {props.forksCount}</Text>
-        <Text>Review: {props.reviewCount}</Text>
-        <Text>Raiting: {props.ratingAverage}</Text>
-    </View>
-);
+interface IRepositoryItem {
+    id: string;
+    language?: string;
+    fullName?: string;
+    description?: string;
+    stargazersCount?: number;
+    forksCount?: number;
+    reviewCount?: number;
+    raitingAverage?: number;
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -22,11 +19,40 @@ const styles = StyleSheet.create({
         paddingBottom: 5,
         paddingTop: 5,
     },
-    id: {
-        color: '#09f',
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
 });
+
+const RepositoryItem = ({
+    id,
+    fullName,
+    description,
+    language,
+    stargazersCount,
+    forksCount,
+    reviewCount,
+    raitingAverage,
+}: IRepositoryItem) => (
+    <View key={id} style={styles.container}>
+        <StyledText bold blue>
+            id:{id}
+        </StyledText>
+        <Text>FullName: {fullName}</Text>
+        <Text>Description: {description}</Text>
+        <Text>Language: {language}</Text>
+        <Text>Stars: {stargazersCount}</Text>
+        <Text>Forks: {forksCount}</Text>
+        <Text>Review: {reviewCount}</Text>
+        <Text>Raiting: {raitingAverage}</Text>
+    </View>
+);
+
+RepositoryItem.defaultProps = {
+    language: null,
+    fullName: null,
+    description: null,
+    stargazersCount: 0,
+    forksCount: 0,
+    reviewCount: 0,
+    raitingAverage: 0,
+};
 
 export default RepositoryItem;
