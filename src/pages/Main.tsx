@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         marginTop: Constants.statusBarHeight,
+        width: '100%',
     },
 });
 
